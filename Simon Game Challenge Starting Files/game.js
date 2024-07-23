@@ -15,14 +15,12 @@ function startGame() {
   }
 }
 
-// Detect when a key is pressed to start the game
-$(document).keypress(startGame);
-
-// Detect screen touch to start the game
-$(document).on("touchstart", startGame);
+// Detect when a key is pressed or screen is touched to start the game
+$(document).on("keypress touchstart", startGame);
 
 // Detect button clicks or touches
-$(".btn").on("click touchstart", function() {
+$(".btn").on("click touchstart", function(event) {
+  event.preventDefault(); // Prevent default behavior for touch events
   var userChosenColor = $(this).attr("id"); // Get the id (color) of the clicked button
   userClickedPattern.push(userChosenColor); // Add the color to the user's sequence
 
