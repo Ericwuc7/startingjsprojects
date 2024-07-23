@@ -11,6 +11,16 @@ var started = false;
 //2. Create a new variable called level and start at level 0.
 var level = 0;
 
+
+$(document).on("touchstart", function() {
+  if (!started) {
+    $("#level-title").text("Level " + level); // Update level title
+    nextSequence(); // Generate the first sequence
+    started = true; // Set game started to true
+  }
+});
+
+
 //1. Use jQuery to detect when a keyboard key has been pressed, when that happens for the first time, call nextSequence().
 $(document).keypress(function() {
   if (!started) {
