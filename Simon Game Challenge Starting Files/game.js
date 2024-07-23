@@ -34,13 +34,14 @@ $(document).keypress(function() {
 
 
 
-$(".btn").click(function() {
-    var userChosenColour = $(this).attr("id");
-userClickedPattern.push(userChosenColour);
-playSound(userChosenColour);
-animatePress(userChosenColour);
+$(".btn").on("click touchstart", function() {
+  var userChosenColour = $(this).attr("id"); // Get the id (color) of the clicked button
+  userClickedPattern.push(userChosenColour); // Add the color to the user's sequence
 
-    checkAnswer(userClickedPattern.length-1);
+  playSound(userChosenColour); // Play the sound for the clicked color
+  animatePress(userChosenColour); // Animate the button press
+
+  checkAnswer(userClickedPattern.length - 1); // Check the user's answer
 });
 
 
